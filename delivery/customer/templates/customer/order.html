@@ -1,0 +1,523 @@
+{% extends 'customer/base.html' %}
+{% block title  %}
+  Order
+{% endblock title  %}
+{% load static %}
+{% block content %}
+<div class="container mb-5">
+    <div class="row justify-content-center mt-1">
+        <div class="col-md-12 col-sm-12 p-4">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="pt-5">
+                    <h1>Breakfast</h1>
+                    {% for break in Breakfast %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ break.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ break.pk }}">
+                                    <label class="form-check-label">{{ break.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ break.price }}</p>
+                            </div>
+                            <p>{{ break.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Snacks</h1>
+                    {% for app in Snacks %}
+                    <div class="row">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ app.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
+                                    <label class="form-check-label">{{ app.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ app.price }}</p>
+                            </div>
+                            <p>{{ app.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Chaat</h1>
+                    {% for entre in Chaat %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ entre.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ entre.pk }}">
+                                    <label class="form-check-label">{{ entre.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ entre.price }}</p>
+                            </div>
+                            <p>{{ entre.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Barbecue</h1>
+                    {% for bbq in Barbecue %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ bbq.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ bbq.pk }}">
+                                    <label class="form-check-label">{{ bbq.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ bbq.price }}</p>
+                            </div>
+                            <p>{{ bbq.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Tandoor</h1>
+                    {% for tandoor in Tandoor %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ tandoor.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ tandoor.pk }}">
+                                    <label class="form-check-label">{{ tandoor.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ tandoor.price }}</p>
+                            </div>
+                            <p>{{ tandoor.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>South Indian</h1>
+                    {% for southIndian in South %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ southIndian.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ southIndian.pk }}">
+                                    <label class="form-check-label">{{ southIndian.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ southIndian.price }}</p>
+                            </div>
+                            <p>{{ southIndian.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Mughlai</h1>
+                    {% for mugh in Mughlai %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ mugh.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ mugh.pk }}">
+                                    <label class="form-check-label">{{ mugh.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ mugh.price }}</p>
+                            </div>
+                            <p>{{ mugh.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>North Indian</h1>
+                    {% for northIndian in North %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ northIndian.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ northIndian.pk }}">
+                                    <label class="form-check-label">{{ northIndian.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{northIndian.price }}</p>
+                            </div>
+                            <p>{{ northIndian.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Breads</h1>
+                    {% for break in Bread %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ break.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ break.pk }}">
+                                    <label class="form-check-label">{{ break.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ break.price }}</p>
+                            </div>
+                            <p>{{ break.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+                <div class="pt-5">
+                    <h1>Thali's</h1>
+                    {% for thali in Thali %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ thali.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ thali.pk }}">
+                                    <label class="form-check-label">{{ thali.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ thali.price }}</p>
+                            </div>
+                            <p>{{ thali.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Bengali</h1>
+                    {% for bengali in Bengali %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{bengali.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ bengali.pk }}">
+                                    <label class="form-check-label">{{ bengali.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ bengali.price }}</p>
+                            </div>
+                            <p>{{bengali.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Chinese</h1>
+                    {% for chinese in Chinese %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ chinese.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ chinese.pk }}">
+                                    <label class="form-check-label">{{ chinese.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ chinese.price }}</p>
+                            </div>
+                            <p>{{ chinese.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+
+                    <h1>Italian</h1>
+                    {% for italian in Italian %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ italian.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ italian.pk }}">
+                                    <label class="form-check-label">{{ italian.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ italian.price }}</p>
+                            </div>
+                            <p>{{ italian.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Sea Food</h1>
+                    {% for sea in Sea %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ sea.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ sea.pk }}">
+                                    <label class="form-check-label">{{ sea.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ sea.price }}</p>
+                            </div>
+                            <p>{{ sea.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+                <div class="pt-5">
+                    <h1>Vegeterian</h1>
+                    {% for Veg in Veg %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ Veg.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ Veg.pk }}">
+                                    <label class="form-check-label">{{ Veg.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{Veg.price }}</p>
+                            </div>
+                            <p>{{ Veg.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Desserts</h1>
+                    {% for dessert in desserts %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ dessert.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ dessert.pk }}">
+                                    <label class="form-check-label">{{ dessert.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ dessert.price }}</p>
+                            </div>
+                            <p>{{ dessert.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="pt-5">
+                    <h1>Ice-Creams</h1>
+                    {% for ice in IceCream %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ ice.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ ice.pk }}">
+                                    <label class="form-check-label">{{ ice.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ ice.price }}</p>
+                            </div>
+                            <p>{{ ice.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+                <div class="pt-5">
+                    <h1>Bakery</h1>
+                    {% for bakery in Bakery %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ bakery.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ bakery.pk }}">
+                                    <label class="form-check-label">{{ bakery.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ bakery.price }}</p>
+                            </div>
+                            <p>{{ bakery.description }}</p>
+                        </div>
+                    </div>
+
+                    <hr />
+                    {% endfor %}
+                </div>
+                <div class="pt-5">
+                    <h1>Drinks</h1>
+                    {% for drink in drinks %}
+                    <div class="row mt-4">
+                        <div class="col-md-2 col-sm-12">
+                            <img class="rounded" src="{{ drink.image.url }}" width="150" height="100"/>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="d-flex flex-row">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" name="items[]" class="form-check-input" value="{{ drink.pk }}">
+                                    <label class="form-check-label">{{ drink.name }}</label>
+                                </div>
+                                <p class="font-weight-bold pl-5">{{ drink.price }}</p>
+                            </div>
+                            <p>{{ drink.description }}</p>
+                        </div>
+                    </div>
+                    <hr />
+                    {% endfor %}
+                </div>
+
+                <div class="form-group pt-3">
+                    <label for="name">Full Name</label>
+                    <input required class="form-control" id="name" type="text" placeholder="Your Name" name="name" />
+                </div>
+
+                <div class="form-group pt-3">
+                    <label for="name">Email Address</label>
+                    <input required class="form-control" type="text" placeholder="example@company.com" name="email" />
+                </div>
+
+                    <div class="form-group pt-3">
+                        <label for="name">Phone Number </label>
+                        <input required class="form-control" id="phone" type="text" placeholder="0123456789" name="phno" />
+                    </div>
+
+                <div class="form-group pt-3">
+                    <label for="name">Street Address</label>
+                    <input required class="form-control" type="text" placeholder="1234 Main St" name="street" />
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group pt-3">
+                            <label for="name">City</label>
+                            <input required class="form-control" type="text" placeholder="San Francisco" name="city" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group pt-3">
+                            <label for="name">State</label>
+                            <input required class="form-control" type="text" placeholder="CA" name="state" />
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group pt-3">
+                            <label for="name">Zip Code</label>
+                            <input required class="form-control" type="text" placeholder="94117" name="zip" />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#submitModal">
+                  Submit Order!
+                </button>
+                <!-- <button class="btn btn-dark mt-5">Place Order!</button> -->
+
+                <!-- Modal -->
+                <div class="modal fade" id="submitModal" tabindex="-1" role="dialog" aria-labelledby="submitModalLabel" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="submitModalLabel">Submit Your Order!</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Go Back</button>
+                        <button type="submit" class="btn btn-dark">Place Order!</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    function checkPhoneNumber()
+    {
+        var phoneNumber = document.getElementById("phone").value;
+        var output = document.getElementById("phoneNumber_Warning");
+        output.style.color = "red";
+        if (!(/^[0-9]/.test(phoneNumber)) && phoneNumber != "")
+           output.innerHTML = "&nbsp;Phone number must contains only digits!";
+        else if (phoneNumber.length != 10 && phoneNumber.length > 0)
+             output.innerHTML = "&nbsp;Phone Number must be 10 digits!";     
+        else
+           output.innerHTML = "";
+    }
+    function checkName() {
+        var name = document.getElementById("name").value;
+        var output = document.getElementById("name_Warning");
+        output.style.color = "red";
+        if (name.length < 4 && name != "")
+           output.innerHTML = "&nbsp;Name Must Have Atleast 4 Character!";
+        else
+           output.innerHTML = "";
+    }
+   
+</script>
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% load leaflet_tags %}
+
+{% block content %}
+    <h1>Food Delivery Map</h1>
+    {% leaflet_map "map" %}
+    {% for restaurant in restaurants %}
+        {% leaflet_marker restaurant.location latitude_attr='location.latitude' longitude_attr='location.longitude' %}
+    {% endfor %}
+{% endblock %}

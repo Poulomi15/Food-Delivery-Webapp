@@ -1,0 +1,23 @@
+{% extends 'customer/base.html' %}
+{% block title  %}
+  About Us
+{% endblock title  %}
+{% block content %}
+   <div class ="container mb-5">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8 col-sum-12 offset-md-1 p-4 text-center">
+               <h1>About Us!</h1>
+               <p>Welcome to our Happy Tummy Foodies! We are a team of food enthusiasts who are passionate about bringing the best food to your doorstep. Our mission is to make your dining experience as convenient and enjoyable as possible.</p>
+               <p><b>Our Contact Details</b></p>
+                <ul style="display:inline-block; text-align:left;">
+                  <li>Name: Happy Tummy Foodies </li>
+                  <li>Customer Care Number - 9856472104</li>
+                  <li>Email:tummyh25@gmail.com</li>
+                </ul>
+                <br>
+                <a href="{% url 'Terms' %}" target="_blank"><h5 class="fw-semibold text-center ">Terms and Conditions</h5></a>
+                <p>Thank you for choosing our food delivery website. We hope you enjoy your food and have a delightful experience.</p>
+            </div>
+        </div>
+    </div>            
+{% endblock content %}

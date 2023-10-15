@@ -1,0 +1,21 @@
+{% extends 'customer/base.html' %}
+{% block title  %}
+  Home
+{% endblock title  %}
+{% block content %}
+<div class="container mb-5">
+    <body style="background-image: url('/static/bgimage.jpeg');">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-sm-12 offset-md-1 p-4 text-center text-light">
+            <h2 class = "white-text" style="color: white; font-family:Times New Roman; font-weight: bold; font-size:46px;">Happy Tummy Foodies</h2>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-1">
+        <div class="card col-md-5 col-sm-12 offset-md-1 p-4 text-center">
+            <h2>Place an Order</h2>
+            <a href="{% url 'order' %}" class="btn btn-danger">Order Now!</a>
+        </div>
+    </div>
+</body>
+</div>
+{% endblock content %}
